@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1-laravel
+spec:
+  selector:
+    matchLabels:
+      app: app1-laravel
+  template:
+    metadata:
+      labels:
+        app: app1-laravel
+    spec:
+      containers:
+      - name: app1-laravel-container
+        image: partha00011/app1
+        imagePullPolicy: IfNotPresent
+        #        resources:
+        #          limits:
+        #            memory: "128Mi"
+        #            cpu: "500m"
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        application: app1
+
