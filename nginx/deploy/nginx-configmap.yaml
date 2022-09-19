@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-configmap
+data:
+  rp.conf: |
+    upstream app1{
+       server app1-svc.default.svc.cluster.local;
+
+    }
+
+    upstream app2{
+        server app2-svc.default.svc.cluster.local;
+    }
+
+    server{
+      server_name localhost;
+      
+      location /app1{
+                proxy_pass http://app1;
+      }
+
+      location /app2{
+                proxy_pass http://app2;
+      }
+
+    }
