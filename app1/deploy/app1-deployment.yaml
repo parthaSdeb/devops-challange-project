@@ -15,7 +15,6 @@ spec:
       containers:
       - name: app1-laravel-container
         image: partha00011/app1
-        imagePullPolicy: IfNotPresent
         #        resources:
         #          limits:
         #            memory: "128Mi"
