@@ -10,10 +10,11 @@ data:
     }
 
     upstream app2{
-        server app2-svc.default.svc.cluster.local;
+       server app2-svc.default.svc.cluster.local;
     }
 
     server{
+      listen 80;
       server_name localhost;
       
       location /app1{
