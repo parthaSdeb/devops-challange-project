@@ -28,7 +28,7 @@ COPY . .
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-RUN composer dump-autoload
+#RUN composer dump-autoload
 
 # Optimizing Configuration loading
 RUN php artisan config:cache
