@@ -20,3 +20,4 @@ Route::get('/', function () {
 Route::get('/app1', function () {
     return view('app1');
 });
+

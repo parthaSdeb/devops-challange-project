@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
   <head>
-    <title>App-2</title>
+    <title>app2</title>
   </head>
   <body>
-    <h1> Hello I am App-2</h1>
+    <h1> Hello, I am app2</h1>
   </body>
 </html>
 
