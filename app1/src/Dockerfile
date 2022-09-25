@@ -39,4 +39,8 @@ RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
 
+RUN php artisan key:generate && php artisan config:clear && php artisan config:cache && php artisan route:clear
+
+
 RUN chown -R application:application .
+
