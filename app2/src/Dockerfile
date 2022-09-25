@@ -24,11 +24,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 ENV WEB_DOCUMENT_ROOT /app/public
 ENV APP_ENV production
 WORKDIR /app
+COPY .env.example .env
 COPY . .
 
 RUN composer install --no-interaction --optimize-autoloader --no-dev
 
-RUN composer dump-autoload
 
 # Optimizing Configuration loading
 RUN php artisan config:cache
@@ -39,4 +39,8 @@ RUN php artisan route:cache
 # Optimizing View loading
 RUN php artisan view:cache
 
+RUN php artisan key:generate && php artisan config:clear && php artisan config:cache && php artisan route:clear
+
+
 RUN chown -R application:application .
+
